@@ -9,7 +9,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
-
-
+@property (nonatomic, weak) IBOutlet NSPopUpButton * albumList;
+@property (nonatomic, weak) IBOutlet NSProgressIndicator * albumSpinner;
+@property (nonatomic, weak) IBOutlet NSTextField * outputLabel;
+- (IBAction)choseAlbum:(id)sender;
+- (IBAction)exportSlides:(id)sender;
 @end
-
