@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58420E6B1B934BB200B3054C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E6A1B934BB200B3054C /* AppDelegate.m */; };
+		58420E6D1B934BB200B3054C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E6C1B934BB200B3054C /* main.m */; };
+		58420E6F1B934BB200B3054C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58420E6E1B934BB200B3054C /* Images.xcassets */; };
+		58420E721B934BB200B3054C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58420E701B934BB200B3054C /* MainMenu.xib */; };
+		58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58420E781B934BB200B3054C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58420E5C1B934BB200B3054C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58420E631B934BB200B3054C;
+			remoteInfo = "Flickr Slides";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		58420E641B934BB200B3054C /* Flickr Slides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Slides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58420E681B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58420E691B934BB200B3054C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		58420E6A1B934BB200B3054C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58420E6C1B934BB200B3054C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58420E6E1B934BB200B3054C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		58420E711B934BB200B3054C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr SlidesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58420E7C1B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flickr_SlidesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58420E611B934BB200B3054C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58420E741B934BB200B3054C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58420E5B1B934BB200B3054C = {
+			isa = PBXGroup;
+			children = (
+				58420E661B934BB200B3054C /* Flickr Slides */,
+				58420E7A1B934BB200B3054C /* Flickr SlidesTests */,
+				58420E651B934BB200B3054C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58420E651B934BB200B3054C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58420E641B934BB200B3054C /* Flickr Slides.app */,
+				58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58420E661B934BB200B3054C /* Flickr Slides */ = {
+			isa = PBXGroup;
+			children = (
+				58420E691B934BB200B3054C /* AppDelegate.h */,
+				58420E6A1B934BB200B3054C /* AppDelegate.m */,
+				58420E6E1B934BB200B3054C /* Images.xcassets */,
+				58420E701B934BB200B3054C /* MainMenu.xib */,
+				58420E671B934BB200B3054C /* Supporting Files */,
+			);
+			path = "Flickr Slides";
+			sourceTree = "<group>";
+		};
+		58420E671B934BB200B3054C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58420E681B934BB200B3054C /* Info.plist */,
+				58420E6C1B934BB200B3054C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58420E7A1B934BB200B3054C /* Flickr SlidesTests */ = {
+			isa = PBXGroup;
+			children = (
+				58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */,
+				58420E7B1B934BB200B3054C /* Supporting Files */,
+			);
+			path = "Flickr SlidesTests";
+			sourceTree = "<group>";
+		};
+		58420E7B1B934BB200B3054C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58420E7C1B934BB200B3054C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58420E631B934BB200B3054C /* Flickr Slides */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58420E811B934BB200B3054C /* Build configuration list for PBXNativeTarget "Flickr Slides" */;
+			buildPhases = (
+				58420E601B934BB200B3054C /* Sources */,
+				58420E611B934BB200B3054C /* Frameworks */,
+				58420E621B934BB200B3054C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flickr Slides";
+			productName = "Flickr Slides";
+			productReference = 58420E641B934BB200B3054C /* Flickr Slides.app */;
+			productType = "com.apple.product-type.application";
+		};
+		58420E761B934BB200B3054C /* Flickr SlidesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58420E841B934BB200B3054C /* Build configuration list for PBXNativeTarget "Flickr SlidesTests" */;
+			buildPhases = (
+				58420E731B934BB200B3054C /* Sources */,
+				58420E741B934BB200B3054C /* Frameworks */,
+				58420E751B934BB200B3054C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58420E791B934BB200B3054C /* PBXTargetDependency */,
+			);
+			name = "Flickr SlidesTests";
+			productName = "Flickr SlidesTests";
+			productReference = 58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58420E5C1B934BB200B3054C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Jason Terhorst";
+				TargetAttributes = {
+					58420E631B934BB200B3054C = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					58420E761B934BB200B3054C = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 58420E631B934BB200B3054C;
+					};
+				};
+			};
+			buildConfigurationList = 58420E5F1B934BB200B3054C /* Build configuration list for PBXProject "Flickr Slides" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58420E5B1B934BB200B3054C;
+			productRefGroup = 58420E651B934BB200B3054C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58420E631B934BB200B3054C /* Flickr Slides */,
+				58420E761B934BB200B3054C /* Flickr SlidesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58420E621B934BB200B3054C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58420E6F1B934BB200B3054C /* Images.xcassets in Resources */,
+				58420E721B934BB200B3054C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58420E751B934BB200B3054C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58420E601B934BB200B3054C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58420E6D1B934BB200B3054C /* main.m in Sources */,
+				58420E6B1B934BB200B3054C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58420E731B934BB200B3054C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58420E791B934BB200B3054C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58420E631B934BB200B3054C /* Flickr Slides */;
+			targetProxy = 58420E781B934BB200B3054C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		58420E701B934BB200B3054C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58420E711B934BB200B3054C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58420E7F1B934BB200B3054C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		58420E801B934BB200B3054C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		58420E821B934BB200B3054C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Flickr Slides/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58420E831B934BB200B3054C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Flickr Slides/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		58420E851B934BB200B3054C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flickr SlidesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flickr Slides.app/Contents/MacOS/Flickr Slides";
+			};
+			name = Debug;
+		};
+		58420E861B934BB200B3054C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flickr SlidesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flickr Slides.app/Contents/MacOS/Flickr Slides";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58420E5F1B934BB200B3054C /* Build configuration list for PBXProject "Flickr Slides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58420E7F1B934BB200B3054C /* Debug */,
+				58420E801B934BB200B3054C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58420E811B934BB200B3054C /* Build configuration list for PBXNativeTarget "Flickr Slides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58420E821B934BB200B3054C /* Debug */,
+				58420E831B934BB200B3054C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		58420E841B934BB200B3054C /* Build configuration list for PBXNativeTarget "Flickr SlidesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58420E851B934BB200B3054C /* Debug */,
+				58420E861B934BB200B3054C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58420E5C1B934BB200B3054C /* Project object */;
+}
