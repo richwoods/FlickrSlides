@@ -118,7 +118,21 @@
 				for (NSDictionary * photoDict in _selectedAlbumDictionary[@"photo"]) {
 					NSString * photoTitle = photoDict[@"title"];
 					NSString * photoUrl = photoDict[@"url_o"];
-					NSLog(@"%@: %@", photoTitle, photoUrl);
+					
+                    NSString * photoFilename = [photoUrl lastPathComponent];
+                    NSString * photoLocalPath = [[self _findOrCreateDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appendPathComponent:@"photos" error:nil] stringByAppendingPathComponent:photoFilename];
+                    NSLog(@"%@: %@", photoTitle, photoLocalPath);
+                    
+                    NSError * downloadError = nil;
+                    NSURLResponse * downloadResponse = nil;
+                    NSURLRequest * downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:photoUrl]];
+                    NSData * photoData = [NSURLConnection sendSynchronousRequest:downloadRequest returningResponse:&downloadResponse error:&downloadError];
+                    if (!downloadError) {
+                        if (![[NSFileManager defaultManager] fileExistsAtPath:[photoLocalPath stringByDeletingLastPathComponent]]) {
+                            [[NSFileManager defaultManager] createDirectoryAtPath:[photoLocalPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                        }
+                        [photoData writeToFile:photoLocalPath atomically:YES];
+                    }
 				}
 
 				dispatch_async(dispatch_get_main_queue(), ^{
@@ -144,7 +158,7 @@
 }
 
 
-+ (NSString *)_findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
+- (NSString *)_findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
 {
 	//
 	// Search for the path
