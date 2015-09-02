@@ -12,7 +12,7 @@
 		58420E6F1B934BB200B3054C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58420E6E1B934BB200B3054C /* Images.xcassets */; };
 		58420E721B934BB200B3054C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58420E701B934BB200B3054C /* MainMenu.xib */; };
 		58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */; };
-		58420E881B934BE500B3054C /* flickr_keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58420E871B934BE500B3054C /* flickr_keys.plist */; };
+		58D3D7141B970FA700EEC9B7 /* flickr_keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58D3D7131B970FA700EEC9B7 /* flickr_keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,7 @@
 		58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr SlidesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58420E7C1B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flickr_SlidesTests.m; sourceTree = "<group>"; };
-		58420E871B934BE500B3054C /* flickr_keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flickr_keys.plist; sourceTree = "<group>"; };
+		58D3D7131B970FA700EEC9B7 /* flickr_keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flickr_keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 				58420E6E1B934BB200B3054C /* Images.xcassets */,
 				58420E701B934BB200B3054C /* MainMenu.xib */,
 				58420E671B934BB200B3054C /* Supporting Files */,
-				58420E871B934BE500B3054C /* flickr_keys.plist */,
+				58D3D7131B970FA700EEC9B7 /* flickr_keys.plist */,
 			);
 			path = "Flickr Slides";
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 			files = (
 				58420E6F1B934BB200B3054C /* Images.xcassets in Resources */,
 				58420E721B934BB200B3054C /* MainMenu.xib in Resources */,
-				58420E881B934BE500B3054C /* flickr_keys.plist in Resources */,
+				58D3D7141B970FA700EEC9B7 /* flickr_keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +405,7 @@
 				58420E831B934BB200B3054C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58420E841B934BB200B3054C /* Build configuration list for PBXNativeTarget "Flickr SlidesTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +414,7 @@
 				58420E861B934BB200B3054C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

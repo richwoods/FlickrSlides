@@ -86,7 +86,12 @@
 
 	NSInteger selectedAlbumIndex = [_albumList indexOfSelectedItem];
 	NSDictionary * album = [_albumDictionary[@"photosets"][@"photoset"] objectAtIndex:selectedAlbumIndex];
+
+	_albumSpinner.hidden = NO;
+	[_albumSpinner startAnimation:nil];
 	[self _loadPhotosForAlbum:[album[@"id"] integerValue] completion:^(NSError * error) {
+		[_albumSpinner stopAnimation:nil];
+		_albumSpinner.hidden = YES;
 		if (error) {
 			[[NSAlert alertWithError:error] runModal];
 		} else {
@@ -108,6 +113,14 @@
 			NSDictionary * payloadDict = [NSJSONSerialization JSONObjectWithData:albumData options:NSJSONReadingAllowFragments error:&parseError];
 			if (payloadDict) {
 				_selectedAlbumDictionary = payloadDict[@"photoset"];
+				NSLog(@"photos: %@", _selectedAlbumDictionary);
+
+				for (NSDictionary * photoDict in _selectedAlbumDictionary[@"photo"]) {
+					NSString * photoTitle = photoDict[@"title"];
+					NSString * photoUrl = photoDict[@"url_o"];
+					NSLog(@"%@: %@", photoTitle, photoUrl);
+				}
+
 				dispatch_async(dispatch_get_main_queue(), ^{
 					completion(nil);
 				});
@@ -128,6 +141,79 @@
 - (IBAction)exportSlides:(id)sender;
 {
 
+}
+
+
++ (NSString *)_findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
+{
+	//
+	// Search for the path
+	//
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(searchPathDirectory, domainMask, YES);
+	if ([paths count] == 0)
+	{
+		if (errorOut)
+		{
+			NSDictionary *userInfo =
+			[NSDictionary dictionaryWithObjectsAndKeys:
+			 NSLocalizedStringFromTable(
+										@"No path found for directory in domain.",
+										@"Errors",
+										nil),
+			 NSLocalizedDescriptionKey,
+			 [NSNumber numberWithInteger:searchPathDirectory],
+			 @"NSSearchPathDirectory",
+			 [NSNumber numberWithInteger:domainMask],
+			 @"NSSearchPathDomainMask",
+			 nil];
+			*errorOut =
+			[NSError
+			 errorWithDomain:@"Directory Location"
+			 code:0
+			 userInfo:userInfo];
+		}
+		return nil;
+	}
+
+	if ([paths count] == 0)
+		return nil;
+
+	//
+	// Normally only need the first path returned
+	//
+	NSString *resolvedPath = [paths objectAtIndex:0];
+
+	//
+	// Append the extra path component
+	//
+	if (appendComponent)
+	{
+		resolvedPath = [resolvedPath
+						stringByAppendingPathComponent:appendComponent];
+	}
+
+	//
+	// Create the path if it doesn't exist
+	//
+	NSError *error = nil;
+	BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:resolvedPath withIntermediateDirectories:YES attributes:nil error:&error];
+	if (!success)
+	{
+		if (errorOut)
+		{
+			*errorOut = error;
+		}
+		return nil;
+	}
+
+	//
+	// If we've made it this far, we have a success
+	//
+	if (errorOut)
+	{
+		*errorOut = nil;
+	}
+	return resolvedPath;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
