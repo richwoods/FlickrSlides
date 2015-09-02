@@ -120,7 +120,7 @@
 					NSString * photoUrl = photoDict[@"url_o"];
 					
                     NSString * photoFilename = [photoUrl lastPathComponent];
-                    NSString * photoLocalPath = [[self _findOrCreateDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appendPathComponent:@"photos" error:nil] stringByAppendingPathComponent:photoFilename];
+                    NSString * photoLocalPath = [[self _findOrCreateDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appendPathComponent:@"Flickr Slides" error:nil] stringByAppendingPathComponent:photoFilename];
                     NSLog(@"%@: %@", photoTitle, photoLocalPath);
                     
                     NSError * downloadError = nil;
@@ -154,7 +154,7 @@
 
 - (IBAction)exportSlides:(id)sender;
 {
-
+    
 }
 
 
