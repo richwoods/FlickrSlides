@@ -12,6 +12,13 @@
 		58420E6F1B934BB200B3054C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58420E6E1B934BB200B3054C /* Images.xcassets */; };
 		58420E721B934BB200B3054C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58420E701B934BB200B3054C /* MainMenu.xib */; };
 		58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */; };
+		58AE155C1B976AAC00BCA40F /* ProPresenterSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AE155B1B976AAC00BCA40F /* ProPresenterSerializer.m */; };
+		58AE156C1B976AE400BCA40F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE155F1B976AE400BCA40F /* ioapi.c */; };
+		58AE156D1B976AE400BCA40F /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE15621B976AE400BCA40F /* mztools.c */; };
+		58AE156E1B976AE400BCA40F /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AE15651B976AE400BCA40F /* SSZipArchive.m */; };
+		58AE156F1B976AE400BCA40F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE15661B976AE400BCA40F /* unzip.c */; };
+		58AE15701B976AE400BCA40F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE15681B976AE400BCA40F /* zip.c */; };
+		58AE15711B976AE400BCA40F /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 58AE156B1B976AE400BCA40F /* ZipArchive.mm */; };
 		58CBC10F1B973BC300F54D1B /* flickr_keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58CBC10E1B973BC300F54D1B /* flickr_keys.plist */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +43,22 @@
 		58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr SlidesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58420E7C1B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flickr_SlidesTests.m; sourceTree = "<group>"; };
+		58AE155A1B976AAC00BCA40F /* ProPresenterSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProPresenterSerializer.h; sourceTree = "<group>"; };
+		58AE155B1B976AAC00BCA40F /* ProPresenterSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPresenterSerializer.m; sourceTree = "<group>"; };
+		58AE155E1B976AE400BCA40F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		58AE155F1B976AE400BCA40F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		58AE15601B976AE400BCA40F /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		58AE15611B976AE400BCA40F /* minizip-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "minizip-Prefix.pch"; sourceTree = "<group>"; };
+		58AE15621B976AE400BCA40F /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		58AE15631B976AE400BCA40F /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		58AE15641B976AE400BCA40F /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		58AE15651B976AE400BCA40F /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		58AE15661B976AE400BCA40F /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		58AE15671B976AE400BCA40F /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		58AE15681B976AE400BCA40F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		58AE15691B976AE400BCA40F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		58AE156A1B976AE400BCA40F /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		58AE156B1B976AE400BCA40F /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		58CBC10E1B973BC300F54D1B /* flickr_keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flickr_keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +101,11 @@
 		58420E661B934BB200B3054C /* Flickr Slides */ = {
 			isa = PBXGroup;
 			children = (
+				58AE155D1B976ACE00BCA40F /* zip */,
 				58420E691B934BB200B3054C /* AppDelegate.h */,
 				58420E6A1B934BB200B3054C /* AppDelegate.m */,
+				58AE155A1B976AAC00BCA40F /* ProPresenterSerializer.h */,
+				58AE155B1B976AAC00BCA40F /* ProPresenterSerializer.m */,
 				58420E6E1B934BB200B3054C /* Images.xcassets */,
 				58420E701B934BB200B3054C /* MainMenu.xib */,
 				58420E671B934BB200B3054C /* Supporting Files */,
@@ -112,6 +138,27 @@
 				58420E7C1B934BB200B3054C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58AE155D1B976ACE00BCA40F /* zip */ = {
+			isa = PBXGroup;
+			children = (
+				58AE155E1B976AE400BCA40F /* crypt.h */,
+				58AE155F1B976AE400BCA40F /* ioapi.c */,
+				58AE15601B976AE400BCA40F /* ioapi.h */,
+				58AE15611B976AE400BCA40F /* minizip-Prefix.pch */,
+				58AE15621B976AE400BCA40F /* mztools.c */,
+				58AE15631B976AE400BCA40F /* mztools.h */,
+				58AE15641B976AE400BCA40F /* SSZipArchive.h */,
+				58AE15651B976AE400BCA40F /* SSZipArchive.m */,
+				58AE15661B976AE400BCA40F /* unzip.c */,
+				58AE15671B976AE400BCA40F /* unzip.h */,
+				58AE15681B976AE400BCA40F /* zip.c */,
+				58AE15691B976AE400BCA40F /* zip.h */,
+				58AE156A1B976AE400BCA40F /* ZipArchive.h */,
+				58AE156B1B976AE400BCA40F /* ZipArchive.mm */,
+			);
+			path = zip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +262,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				58420E6D1B934BB200B3054C /* main.m in Sources */,
+				58AE15701B976AE400BCA40F /* zip.c in Sources */,
+				58AE156F1B976AE400BCA40F /* unzip.c in Sources */,
+				58AE155C1B976AAC00BCA40F /* ProPresenterSerializer.m in Sources */,
+				58AE156E1B976AE400BCA40F /* SSZipArchive.m in Sources */,
+				58AE156C1B976AE400BCA40F /* ioapi.c in Sources */,
 				58420E6B1B934BB200B3054C /* AppDelegate.m in Sources */,
+				58AE15711B976AE400BCA40F /* ZipArchive.mm in Sources */,
+				58AE156D1B976AE400BCA40F /* mztools.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

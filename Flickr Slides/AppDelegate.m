@@ -120,7 +120,7 @@
 					NSString * photoUrl = photoDict[@"url_o"];
 					
                     NSString * photoFilename = [photoUrl lastPathComponent];
-                    NSString * photoLocalPath = [[self _findOrCreateDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appendPathComponent:@"Flickr Slides" error:nil] stringByAppendingPathComponent:photoFilename];
+                    NSString * photoLocalPath = [[self _photoDirectory] stringByAppendingPathComponent:photoFilename];
                     NSLog(@"%@: %@", photoTitle, photoLocalPath);
                     
                     NSError * downloadError = nil;
@@ -154,9 +154,54 @@
 
 - (IBAction)exportSlides:(id)sender;
 {
+    NSSavePanel * savePanel = [NSSavePanel savePanel];
+    [savePanel setExtensionHidden:NO];
     
+    [savePanel setAllowedFileTypes:@[@"pro5x"]];
+    [savePanel setAllowsOtherFileTypes:NO];
+    [savePanel setNameFieldStringValue:[_albumList titleOfSelectedItem]];
+    NSModalResponse result = [savePanel runModal];
+    if (result == NSModalResponseCancel)
+    {
+        return;
+    }
+    else if (result == NSModalResponseOK)
+    {
+        NSString * panelPath = [[savePanel URL] path];
+        
+        NSDateFormatter * sRFC3339DateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        
+        [sRFC3339DateFormatter setLocale:enUSPOSIXLocale];
+        [sRFC3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+        [sRFC3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        NSString * documentDate = [sRFC3339DateFormatter stringFromDate:[NSDate date]];
+        
+        NSDictionary * documentSettings = @{@"document title":[[panelPath lastPathComponent] stringByDeletingPathExtension], @"document height":@"1080", @"document width":@"1920", @"date":documentDate, @"group uuid":[[NSUUID UUID] UUIDString]};
+        
+        
+        
+//        NSString * sampleLyrics = [song chordChart];
+//        LineSplitter * splitter = [[LineSplitter alloc] init];
+//        splitter.maxLinesPerSlide = 4;
+//        ProPresenterSerializer * serializer = [[ProPresenterSerializer alloc] init];
+        
+//        NSMutableArray * slides = [NSMutableArray array];
+//        NSInteger numberOfSlides = [splitter numberOfSlidesForLineCount:4 inLyrics:sampleLyrics];
+//        NSInteger iterator = 0;
+//        for (iterator = 0; iterator < numberOfSlides; iterator++)
+//        {
+//            [slides addObject:[splitter linesForSlideAtIndex:iterator lineCount:4 inLyrics:sampleLyrics]];
+//        }
+//        
+//        [serializer saveSlideOutput:slides toPath:panelPath documentSettings:documentSettings];
+    }
 }
 
+- (NSString *)_photoDirectory
+{
+    return [self _findOrCreateDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appendPathComponent:@"Flickr Slides" error:nil];
+}
 
 - (NSString *)_findOrCreateDirectory:(NSSearchPathDirectory)searchPathDirectory inDomain:(NSSearchPathDomainMask)domainMask appendPathComponent:(NSString *)appendComponent error:(NSError **)errorOut;
 {
