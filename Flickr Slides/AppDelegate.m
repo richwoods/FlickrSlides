@@ -36,6 +36,8 @@
 	_albumQueue = dispatch_queue_create("com.flickrslides.albums", DISPATCH_QUEUE_CONCURRENT);
 	_photoQueue = dispatch_queue_create("com.flickrslides.photos", DISPATCH_QUEUE_CONCURRENT);
 
+	[_exportSlidesButton setEnabled:NO];
+
 	_albumSpinner.hidden = NO;
 	[_albumSpinner startAnimation:nil];
 	[self _updateAlbumsListWithCompletion:^(NSError * error) {
@@ -49,6 +51,12 @@
 			for (NSDictionary * photoSet in _albumDictionary[@"photosets"][@"photoset"]) {
 				[_albumList addItemWithTitle:photoSet[@"title"][@"_content"]];
 			}
+			[_exportSlidesButton setEnabled:NO];
+			[self _loadPhotosForAlbum:[_albumList indexOfSelectedItem] completion:^(NSError * error) {
+				if (!error) {
+					[_exportSlidesButton setEnabled:YES];
+				}
+			}];
 		}
 	}];
 }
@@ -86,6 +94,8 @@
 {
 	NSLog(@"album: %@", [_albumList titleOfSelectedItem]);
 
+	[_exportSlidesButton setEnabled:NO];
+
 	NSInteger selectedAlbumIndex = [_albumList indexOfSelectedItem];
 	NSDictionary * album = [_albumDictionary[@"photosets"][@"photoset"] objectAtIndex:selectedAlbumIndex];
 
@@ -98,6 +108,7 @@
 			[[NSAlert alertWithError:error] runModal];
 		} else {
 			_outputLabel.stringValue = [NSString stringWithFormat:@"%ld photos", [_selectedAlbumDictionary[@"photo"] count]];
+			[_exportSlidesButton setEnabled:YES];
 		}
 	}];
 }

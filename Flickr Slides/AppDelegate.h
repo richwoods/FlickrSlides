@@ -12,6 +12,7 @@
 @property (nonatomic, weak) IBOutlet NSPopUpButton * albumList;
 @property (nonatomic, weak) IBOutlet NSProgressIndicator * albumSpinner;
 @property (nonatomic, weak) IBOutlet NSTextField * outputLabel;
+@property (nonatomic, weak) IBOutlet NSButton * exportSlidesButton;
 - (IBAction)choseAlbum:(id)sender;
 - (IBAction)exportSlides:(id)sender;
 @end
