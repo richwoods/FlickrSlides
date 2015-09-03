@@ -12,6 +12,10 @@
 		58420E6F1B934BB200B3054C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58420E6E1B934BB200B3054C /* Images.xcassets */; };
 		58420E721B934BB200B3054C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58420E701B934BB200B3054C /* MainMenu.xib */; };
 		58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */; };
+		589874FF1B97D2E3000DE867 /* cue_element.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */; };
+		589875011B97D459000DE867 /* slide_element.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589875001B97D459000DE867 /* slide_element.slidetemplate */; };
+		589875031B97DCCA000DE867 /* document.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589875021B97DCCA000DE867 /* document.slidetemplate */; };
+		589875051B97E1FE000DE867 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 589875041B97E1FE000DE867 /* libz.1.2.5.dylib */; };
 		58AE155C1B976AAC00BCA40F /* ProPresenterSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58AE155B1B976AAC00BCA40F /* ProPresenterSerializer.m */; };
 		58AE156C1B976AE400BCA40F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE155F1B976AE400BCA40F /* ioapi.c */; };
 		58AE156D1B976AE400BCA40F /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 58AE15621B976AE400BCA40F /* mztools.c */; };
@@ -43,6 +47,10 @@
 		58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr SlidesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58420E7C1B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flickr_SlidesTests.m; sourceTree = "<group>"; };
+		589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cue_element.slidetemplate; sourceTree = "<group>"; };
+		589875001B97D459000DE867 /* slide_element.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slide_element.slidetemplate; sourceTree = "<group>"; };
+		589875021B97DCCA000DE867 /* document.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.slidetemplate; sourceTree = "<group>"; };
+		589875041B97E1FE000DE867 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		58AE155A1B976AAC00BCA40F /* ProPresenterSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProPresenterSerializer.h; sourceTree = "<group>"; };
 		58AE155B1B976AAC00BCA40F /* ProPresenterSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProPresenterSerializer.m; sourceTree = "<group>"; };
 		58AE155E1B976AE400BCA40F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
@@ -67,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				589875051B97E1FE000DE867 /* libz.1.2.5.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +92,7 @@
 		58420E5B1B934BB200B3054C = {
 			isa = PBXGroup;
 			children = (
+				589875041B97E1FE000DE867 /* libz.1.2.5.dylib */,
 				58420E661B934BB200B3054C /* Flickr Slides */,
 				58420E7A1B934BB200B3054C /* Flickr SlidesTests */,
 				58420E651B934BB200B3054C /* Products */,
@@ -110,6 +120,9 @@
 				58420E701B934BB200B3054C /* MainMenu.xib */,
 				58420E671B934BB200B3054C /* Supporting Files */,
 				58CBC10E1B973BC300F54D1B /* flickr_keys.plist */,
+				589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */,
+				589875001B97D459000DE867 /* slide_element.slidetemplate */,
+				589875021B97DCCA000DE867 /* document.slidetemplate */,
 			);
 			path = "Flickr Slides";
 			sourceTree = "<group>";
@@ -242,7 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				58420E6F1B934BB200B3054C /* Images.xcassets in Resources */,
+				589875011B97D459000DE867 /* slide_element.slidetemplate in Resources */,
 				58420E721B934BB200B3054C /* MainMenu.xib in Resources */,
+				589874FF1B97D2E3000DE867 /* cue_element.slidetemplate in Resources */,
+				589875031B97DCCA000DE867 /* document.slidetemplate in Resources */,
 				58CBC10F1B973BC300F54D1B /* flickr_keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

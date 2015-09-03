@@ -1,0 +1,19 @@
+<RVPresentationDocument CCLIArtistCredits="" CCLICopyrightInfo="" CCLIDisplay="0" CCLILicenseNumber="" CCLIPublisher="" CCLISongTitle="{document_title}" album="" artist="" author="" backgroundColor="0 0 0 1" category="Presentation" chordChartPath="" creatorCode="1349676880" docType="0" drawingBackgroundColor="0" height="1440" lastDateUsed="2014-07-18T00:31:49" notes="" resourcesDirectory="" usedCount="0" versionNumber="500" width="2560">
+<timeline duration="110" loop="1" selectedMediaTrackIndex="0" timeOffSet="0" unitOfMeasure="60">
+<timeCues containerClass="NSMutableArray">
+{time_cues}
+</timeCues>
+<mediaTracks containerClass="NSMutableArray"/>
+</timeline>
+<bibleReference containerClass="NSMutableDictionary"/>
+<_-RVProTransitionObject-_transitionObject motionDuration="20" motionEnabled="0" motionSpeed="100" transitionDuration="1" transitionType="-1"/>
+<groups containerClass="NSMutableArray">
+<RVSlideGrouping color="0.5 0.5 0.5 1" name="Group" serialization-array-index="0" uuid="{group_uuid}">
+<slides containerClass="NSMutableArray">
+{slides}
+</slides>
+</RVSlideGrouping>
+</groups>
+<arrangements containerClass="NSMutableArray">
+</arrangements>
+</RVPresentationDocument>

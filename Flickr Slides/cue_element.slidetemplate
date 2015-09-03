@@ -1,0 +1,6 @@
+<RVControlCue UUID="{uuid}" delayTime="0" displayName="Slide" enabled="1" filePath="" parentUUID="{uuid}" serialization-array-index="{index}" slideIndex="{index}" slideUUID="{slide_uuid}" timeStamp="0">
+	<controlObject containerClass="NSMutableDictionary">
+<NSMutableString serialization-dictionary-key="slide_index" serialization-native-value="{index}"/>
+<NSMutableString serialization-dictionary-key="UUID" serialization-native-value="{slide_uuid}"/>
+	</controlObject>
+</RVControlCue>

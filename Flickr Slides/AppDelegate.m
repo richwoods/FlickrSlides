@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Jason Terhorst. All rights reserved.
 //
 
+#import "ProPresenterSerializer.h"
+
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -177,15 +179,29 @@
         [sRFC3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         NSString * documentDate = [sRFC3339DateFormatter stringFromDate:[NSDate date]];
         
-        NSDictionary * documentSettings = @{@"document title":[[panelPath lastPathComponent] stringByDeletingPathExtension], @"document height":@"1080", @"document width":@"1920", @"date":documentDate, @"group uuid":[[NSUUID UUID] UUIDString]};
+        NSDictionary * documentSettings = @{@"date":documentDate};
         
-        
-        
+		NSMutableArray * slides = [NSMutableArray array];
+
+		for (NSDictionary * photoDict in _selectedAlbumDictionary[@"photo"]) {
+			NSString * photoTitle = photoDict[@"title"];
+			NSString * photoUrl = photoDict[@"url_o"];
+
+			NSString * photoFilename = [photoUrl lastPathComponent];
+			NSString * photoLocalPath = [[self _photoDirectory] stringByAppendingPathComponent:photoFilename];
+			NSLog(@"%@: %@", photoTitle, photoLocalPath);
+
+			NSURL * fileURL = [NSURL fileURLWithPath:photoLocalPath];
+
+			[slides addObject:@{@"filename":[fileURL absoluteString], @"title":photoTitle}];
+		}
+
+
 //        NSString * sampleLyrics = [song chordChart];
 //        LineSplitter * splitter = [[LineSplitter alloc] init];
 //        splitter.maxLinesPerSlide = 4;
-//        ProPresenterSerializer * serializer = [[ProPresenterSerializer alloc] init];
-        
+        ProPresenterSerializer * serializer = [[ProPresenterSerializer alloc] init];
+		[serializer saveSlideOutput:slides toPath:panelPath documentSettings:documentSettings];
 //        NSMutableArray * slides = [NSMutableArray array];
 //        NSInteger numberOfSlides = [splitter numberOfSlidesForLineCount:4 inLyrics:sampleLyrics];
 //        NSInteger iterator = 0;

@@ -23,28 +23,48 @@ static CGFloat kxRegularFontSize = 108.0f;
 	NSString * documentTitle = [[path lastPathComponent] stringByDeletingPathExtension];
 
 	NSMutableDictionary * settingsDict = [NSMutableDictionary dictionaryWithDictionary:settings];
-	[settingsDict setObject:escapedDocumentTitle forKey:@"document title"];
+	[settingsDict setObject:escapedDocumentTitle forKey:@"document_title"];
+	[settingsDict setObject:[[NSUUID UUID] UUIDString] forKey:@"group_uuid"];
 	
 	NSMutableString * slidesString = [NSMutableString string];
-	[slidesString appendString:[self _slideOutputForContent:@"" slideIndex:0]];
-	NSInteger slideIndex = 1;
-	for (NSString * slideText in slides)
+	NSMutableString * cuesString = [NSMutableString string];
+	NSInteger slideIndex = 0;
+	for (NSDictionary * slide in slides)
 	{
-		[slidesString appendString:[self _slideOutputForContent:slideText slideIndex:slideIndex]];
+		NSString * uuid = [[NSUUID UUID] UUIDString];
+		[slidesString appendString:[self _slideOutputForFile:slide[@"filename"] title:slide[@"title"] slideUUID:uuid slideIndex:slideIndex lastSlide:slideIndex == [slides count] - 1]];
+		[cuesString appendString:[self _controlCueForSlideIndex:slideIndex slideUUID:uuid]];
 		slideIndex++;
 	}
-	[slidesString appendString:[self _slideOutputForContent:@"" slideIndex:slideIndex]];
 	[settingsDict setObject:slidesString forKey:@"slides"];
+	[settingsDict setObject:cuesString forKey:@"time_cues"];
 	NSString * documentString = [self _documentOutputWithSettings:settingsDict];
 
 	NSString *theZippedFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"z_song_archive.zip"];
 	NSString * mediaDSStorePath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:@".DS_Store"];
 	[[NSFileManager defaultManager] createDirectoryAtPath:[mediaDSStorePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+	NSLog(@"zip path: %@", [mediaDSStorePath stringByDeletingLastPathComponent]);
+
+
 
 	ZipArchive * newZipFile = [[ZipArchive alloc] init];
 	[newZipFile CreateZipFile2:theZippedFilePath Password:@""];
 
 	[newZipFile addFileToZip:mediaDSStorePath newname:[documentTitle stringByAppendingPathComponent:@"media/.DS_Store"]];
+
+	for (NSDictionary * slide in slides) {
+		NSString * slidePath = slide[@"filename"];
+		NSLog(@"path: %@", slidePath);
+		NSString * targetPath = [[mediaDSStorePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:slidePath];
+		NSLog(@"target: %@", targetPath);
+		NSString * targetDirectory = [targetPath stringByDeletingLastPathComponent];
+		if (![[NSFileManager defaultManager] fileExistsAtPath:targetDirectory]) {
+			[[NSFileManager defaultManager] createDirectoryAtPath:targetDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+		}
+		[[NSFileManager defaultManager] copyItemAtPath:slidePath toPath:targetPath error:nil];
+
+		[newZipFile addFileToZip:targetPath newname:[[documentTitle stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:slidePath]];
+	}
 
 	NSString * xmlDocumentPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pro5", documentTitle]];
 
@@ -57,12 +77,12 @@ static CGFloat kxRegularFontSize = 108.0f;
 	[[NSFileManager defaultManager] moveItemAtURL:[NSURL fileURLWithPath:theZippedFilePath] toURL:[NSURL fileURLWithPath:path] error:nil];
 }
 
-- (NSString *)_slideOutputForFile:(NSString *)fileName title:(NSString *)title slideIndex:(NSInteger)slideIndex
+- (NSString *)_slideOutputForFile:(NSString *)fileName title:(NSString *)title slideUUID:(NSString *)slideUUID slideIndex:(NSInteger)slideIndex lastSlide:(BOOL)lastSlide
 {
-	
-	NSDictionary * contentProperties = @{@"uuid":[[NSUUID UUID] UUIDString], @"label":title, @"index":[NSString stringWithFormat:@"%ld", (long)slideIndex]};
+	NSString * loopValue = lastSlide? @"1" : @"0";
+	NSDictionary * contentProperties = @{@"slide_uuid":slideUUID, @"display_name":[[fileName lastPathComponent] stringByDeletingPathExtension], @"title":title, @"slide_index":[NSString stringWithFormat:@"%ld", (long)slideIndex], @"media_uuid":[[NSUUID UUID] UUIDString], @"filename":fileName, @"control_uuid":[[NSUUID UUID] UUIDString], @"loop_value":loopValue};
     
-	NSString * documentTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"song_slide" ofType:@"slidetemplate"] encoding:NSUTF8StringEncoding error:nil];
+	NSString * documentTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"slide_element" ofType:@"slidetemplate"] encoding:NSUTF8StringEncoding error:nil];
 	NSString * documentTest = [self _resultUpdatingTemplate:documentTemplate withDictionary:contentProperties];
 	NSLog(@"doc: %@", documentTest);
 
@@ -71,7 +91,13 @@ static CGFloat kxRegularFontSize = 108.0f;
 
 - (NSString *)_controlCueForSlideIndex:(NSInteger)slideIndex slideUUID:(NSString *)uuid
 {
-    
+	NSDictionary * contentProperties = @{@"slide_uuid":uuid, @"index":[NSString stringWithFormat:@"%ld", (long)slideIndex], @"uuid":[[NSUUID UUID] UUIDString]};
+
+	NSString * documentTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cue_element" ofType:@"slidetemplate"] encoding:NSUTF8StringEncoding error:nil];
+	NSString * documentTest = [self _resultUpdatingTemplate:documentTemplate withDictionary:contentProperties];
+	NSLog(@"doc: %@", documentTest);
+
+	return documentTest;
 }
 
 - (NSString *)dataStringFromAttributedString:(NSAttributedString *)string
