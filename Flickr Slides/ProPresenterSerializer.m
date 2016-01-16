@@ -63,6 +63,11 @@ static CGFloat kxRegularFontSize = 108.0f;
 		}
 		[[NSFileManager defaultManager] copyItemAtPath:slidePath toPath:targetPath error:nil];
 
+		NSError *attributesError = nil;
+		NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:slidePath error:&attributesError];
+		int fileSize = [fileAttributes fileSize];
+		NSLog(@"size: %d file: %@", fileSize, slidePath);
+
 		[newZipFile addFileToZip:targetPath newname:[[documentTitle stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:slidePath]];
 	}
 
