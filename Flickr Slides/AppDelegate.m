@@ -145,6 +145,11 @@
                             [[NSFileManager defaultManager] createDirectoryAtPath:[photoLocalPath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
                         }
                         [photoData writeToFile:photoLocalPath atomically:YES];
+
+						NSError *attributesError = nil;
+						NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:photoLocalPath error:&attributesError];
+						int fileSize = [fileAttributes fileSize];
+						NSLog(@"size: %d file: %@", fileSize, photoLocalPath);
                     }
 				}
 
@@ -202,9 +207,9 @@
 			NSString * photoLocalPath = [[self _photoDirectory] stringByAppendingPathComponent:photoFilename];
 			NSLog(@"%@: %@", photoTitle, photoLocalPath);
 
-			NSURL * fileURL = [NSURL fileURLWithPath:photoLocalPath];
 
-			[slides addObject:@{@"filename":[fileURL absoluteString], @"title":photoTitle}];
+
+			[slides addObject:@{@"filename":photoLocalPath, @"title":photoTitle}];
 		}
 
 

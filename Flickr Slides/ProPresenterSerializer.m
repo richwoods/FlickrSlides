@@ -32,7 +32,8 @@ static CGFloat kxRegularFontSize = 108.0f;
 	for (NSDictionary * slide in slides)
 	{
 		NSString * uuid = [[NSUUID UUID] UUIDString];
-		[slidesString appendString:[self _slideOutputForFile:slide[@"filename"] title:slide[@"title"] slideUUID:uuid slideIndex:slideIndex lastSlide:slideIndex == [slides count] - 1]];
+		NSURL * fileURL = [NSURL fileURLWithPath:slide[@"filename"]];
+		[slidesString appendString:[self _slideOutputForFile:[fileURL absoluteString] title:slide[@"title"] slideUUID:uuid slideIndex:slideIndex lastSlide:slideIndex == [slides count] - 1]];
 		[cuesString appendString:[self _controlCueForSlideIndex:slideIndex slideUUID:uuid]];
 		slideIndex++;
 	}
@@ -53,22 +54,23 @@ static CGFloat kxRegularFontSize = 108.0f;
 	[newZipFile addFileToZip:mediaDSStorePath newname:[documentTitle stringByAppendingPathComponent:@"media/.DS_Store"]];
 
 	for (NSDictionary * slide in slides) {
-		NSString * slidePath = slide[@"filename"];
-		NSLog(@"path: %@", slidePath);
-		NSString * targetPath = [[mediaDSStorePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:slidePath];
+		NSString * slideFilePath = slide[@"filename"];
+		NSLog(@"path: %@", slideFilePath);
+		NSURL * fileURL = [NSURL fileURLWithPath:slideFilePath];
+		NSString * targetPath = [[mediaDSStorePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:[fileURL absoluteString]];
 		NSLog(@"target: %@", targetPath);
 		NSString * targetDirectory = [targetPath stringByDeletingLastPathComponent];
 		if (![[NSFileManager defaultManager] fileExistsAtPath:targetDirectory]) {
 			[[NSFileManager defaultManager] createDirectoryAtPath:targetDirectory withIntermediateDirectories:YES attributes:nil error:nil];
 		}
-		[[NSFileManager defaultManager] copyItemAtPath:slidePath toPath:targetPath error:nil];
+		[[NSFileManager defaultManager] copyItemAtPath:slideFilePath toPath:targetPath error:nil];
 
 		NSError *attributesError = nil;
-		NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:slidePath error:&attributesError];
+		NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:slideFilePath error:&attributesError];
 		int fileSize = [fileAttributes fileSize];
-		NSLog(@"size: %d file: %@", fileSize, slidePath);
+		NSLog(@"size: %d file: %@", fileSize, slideFilePath);
 
-		[newZipFile addFileToZip:targetPath newname:[[documentTitle stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:slidePath]];
+		[newZipFile addFileToZip:targetPath newname:[[documentTitle stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:slideFilePath]];
 	}
 
 	NSString * xmlDocumentPath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pro5", documentTitle]];
