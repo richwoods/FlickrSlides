@@ -172,6 +172,8 @@
 
 - (IBAction)exportSlides:(id)sender;
 {
+	BOOL shouldLoop = _loopingCheckbox.state == 1;
+
     NSSavePanel * savePanel = [NSSavePanel savePanel];
     [savePanel setExtensionHidden:NO];
     
@@ -217,7 +219,7 @@
 //        LineSplitter * splitter = [[LineSplitter alloc] init];
 //        splitter.maxLinesPerSlide = 4;
         ProPresenterSerializer * serializer = [[ProPresenterSerializer alloc] init];
-		[serializer saveSlideOutput:slides toPath:panelPath documentSettings:documentSettings];
+		[serializer saveSlideOutput:slides autoAdvance:shouldLoop toPath:panelPath documentSettings:documentSettings];
 //        NSMutableArray * slides = [NSMutableArray array];
 //        NSInteger numberOfSlides = [splitter numberOfSlidesForLineCount:4 inLyrics:sampleLyrics];
 //        NSInteger iterator = 0;

@@ -1,0 +1,21 @@
+<RVDisplaySlide UUID="{slide_uuid}" backgroundColor="0 0 0 1" chordChartPath="" drawingBackgroundColor="0" enabled="1" highlightColor="0 0 0 0" hotKey="" label="{title}" notes="" serialization-array-index="{slide_index}" slideType="1" sort_index="{slide_index}">
+<cues containerClass="NSMutableArray">
+<RVMediaCue UUID="{media_uuid}" alignment="4" behavior="2" delayTime="0" displayName="{display_name}" elementClassName="RVImageElement" enabled="1" parentUUID="{media_uuid}" serialization-array-index="0" timeStamp="0">
+<element bezelRadius="0" blurRadius="0" brightness="0" colorFilter="1 0 0 1" contrast="1" displayDelay="0" displayName="{title}" drawingFill="0" drawingShadow="0" drawingStroke="0" edgeBlurArea="0" edgeBlurRadius="0" enableBlur="0" enableColorFilter="0" enableColorInvert="0" enableEdgeBlur="0" enableGrayInvert="0" enableHeatSignature="0" enableSepia="0" fillColor="1 1 1 1" flippedHorizontally="0" flippedVertically="0" format="JPEG image" fromTemplate="0" hue="0" locked="0" manufactureName="" manufactureURL="" persistent="0" rotation="0" saturation="1" scaleBehavior="3" scaleFactor="1" serializedFilters="YnBsaXN0MDDUAQIDBAUIFhdUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABowkKD1UkbnVsbNILDA0OViRjbGFzc1pOUy5vYmplY3RzgAKg0hAREhNYJGNsYXNzZXNaJGNsYXNzbmFtZaMTFBVeTlNNdXRhYmxlQXJyYXlXTlNBcnJheVhOU09iamVjdBIAAYagXxAPTlNLZXllZEFyY2hpdmVyCBEWHygyNTo8QEZLUl1fYGVueX2MlJ2iAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=" serializedImageOffset="0.000000@0.000000" source="{filename}" typeID="0">
+<_-RVRect3D-_position height="1440" width="2560" x="0" y="0" z="0"/>
+<_-D-_serializedShadow containerClass="NSMutableDictionary">
+<NSMutableString serialization-dictionary-key="shadowOffset" serialization-native-value="{5, -5}"/>
+<NSNumber serialization-dictionary-key="shadowBlurRadius" serialization-native-value="0"/>
+<NSColor serialization-dictionary-key="shadowColor" serialization-native-value="0 0 0 0.3333333432674408"/>
+</_-D-_serializedShadow>
+<stroke containerClass="NSMutableDictionary">
+<NSColor serialization-dictionary-key="RVShapeElementStrokeColorKey" serialization-native-value="0 0 0 1"/>
+<NSNumber serialization-dictionary-key="RVShapeElementStrokeWidthKey" serialization-native-value="1"/>
+</stroke>
+</element>
+<_-RVProTransitionObject-_transitionObject/>
+</RVMediaCue>
+</cues>
+<displayElements containerClass="NSMutableArray"/>
+<_-RVProTransitionObject-_transitionObject motionDuration="20" motionEnabled="0" motionSpeed="100" transitionDuration="1" transitionType="-1"/>
+</RVDisplaySlide>

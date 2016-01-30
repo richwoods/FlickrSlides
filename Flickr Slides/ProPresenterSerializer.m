@@ -11,11 +11,11 @@
 
 #import <CoreFoundation/CoreFoundation.h>
 
-static CGFloat kxRegularFontSize = 108.0f;
+//static CGFloat kxRegularFontSize = 108.0f;
 
 @implementation ProPresenterSerializer
 
-- (void)saveSlideOutput:(NSArray *)slides toPath:(NSString *)path documentSettings:(NSDictionary *)settings
+- (void)saveSlideOutput:(NSArray *)slides autoAdvance:(BOOL)shouldAutoAdvance toPath:(NSString *)path documentSettings:(NSDictionary *)settings
 {
 	[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 
@@ -33,8 +33,10 @@ static CGFloat kxRegularFontSize = 108.0f;
 	{
 		NSString * uuid = [[NSUUID UUID] UUIDString];
 		NSURL * fileURL = [NSURL fileURLWithPath:slide[@"filename"]];
-		[slidesString appendString:[self _slideOutputForFile:[fileURL absoluteString] title:slide[@"title"] slideUUID:uuid slideIndex:slideIndex lastSlide:slideIndex == [slides count] - 1]];
-		[cuesString appendString:[self _controlCueForSlideIndex:slideIndex slideUUID:uuid]];
+		[slidesString appendString:[self _slideOutputForFile:[fileURL absoluteString] autoAdvancing:shouldAutoAdvance title:slide[@"title"] slideUUID:uuid slideIndex:slideIndex lastSlide:slideIndex == [slides count] - 1]];
+		if (shouldAutoAdvance) {
+			[cuesString appendString:[self _controlCueForSlideIndex:slideIndex slideUUID:uuid]];
+		}
 		slideIndex++;
 	}
 	[settingsDict setObject:slidesString forKey:@"slides"];
@@ -67,8 +69,8 @@ static CGFloat kxRegularFontSize = 108.0f;
 
 		NSError *attributesError = nil;
 		NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:slideFilePath error:&attributesError];
-		int fileSize = [fileAttributes fileSize];
-		NSLog(@"size: %d file: %@", fileSize, slideFilePath);
+		NSInteger fileSize = [fileAttributes fileSize];
+		NSLog(@"size: %ld file: %@", (long)fileSize, slideFilePath);
 
 		[newZipFile addFileToZip:targetPath newname:[[documentTitle stringByAppendingPathComponent:@"media"] stringByAppendingPathComponent:slideFilePath]];
 	}
@@ -84,12 +86,13 @@ static CGFloat kxRegularFontSize = 108.0f;
 	[[NSFileManager defaultManager] moveItemAtURL:[NSURL fileURLWithPath:theZippedFilePath] toURL:[NSURL fileURLWithPath:path] error:nil];
 }
 
-- (NSString *)_slideOutputForFile:(NSString *)fileName title:(NSString *)title slideUUID:(NSString *)slideUUID slideIndex:(NSInteger)slideIndex lastSlide:(BOOL)lastSlide
+- (NSString *)_slideOutputForFile:(NSString *)fileName autoAdvancing:(BOOL)shouldAutoAdvance title:(NSString *)title slideUUID:(NSString *)slideUUID slideIndex:(NSInteger)slideIndex lastSlide:(BOOL)lastSlide
 {
 	NSString * loopValue = lastSlide? @"1" : @"0";
 	NSDictionary * contentProperties = @{@"slide_uuid":slideUUID, @"display_name":[[fileName lastPathComponent] stringByDeletingPathExtension], @"title":title, @"slide_index":[NSString stringWithFormat:@"%ld", (long)slideIndex], @"media_uuid":[[NSUUID UUID] UUIDString], @"filename":fileName, @"control_uuid":[[NSUUID UUID] UUIDString], @"loop_value":loopValue};
-    
-	NSString * documentTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"slide_element" ofType:@"slidetemplate"] encoding:NSUTF8StringEncoding error:nil];
+
+	NSString * templateFilename = shouldAutoAdvance? @"slide_element" : @"slide_element_nonadvancing";
+	NSString * documentTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:templateFilename ofType:@"slidetemplate"] encoding:NSUTF8StringEncoding error:nil];
 	NSString * documentTest = [self _resultUpdatingTemplate:documentTemplate withDictionary:contentProperties];
 	NSLog(@"doc: %@", documentTest);
 
@@ -109,7 +112,7 @@ static CGFloat kxRegularFontSize = 108.0f;
 
 - (NSString *)dataStringFromAttributedString:(NSAttributedString *)string
 {
-	NSData * titleDataBlob = [string RTFFromRange:NSMakeRange(0, string.length) documentAttributes:nil];
+	NSData * titleDataBlob = [string RTFFromRange:NSMakeRange(0, string.length) documentAttributes:@{}];
 	NSString * titleData = [titleDataBlob base64EncodedStringWithOptions:0];
 	return titleData;
 }

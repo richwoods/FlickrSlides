@@ -11,6 +11,6 @@
 
 @interface ProPresenterSerializer : NSObject
 
-- (void)saveSlideOutput:(NSArray *)slides toPath:(NSString *)path documentSettings:(NSDictionary *)settings;
+- (void)saveSlideOutput:(NSArray *)slides autoAdvance:(BOOL)shouldAutoAdvance toPath:(NSString *)path documentSettings:(NSDictionary *)settings;
 
 @end

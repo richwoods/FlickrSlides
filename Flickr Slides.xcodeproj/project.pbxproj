@@ -12,6 +12,7 @@
 		58420E6F1B934BB200B3054C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58420E6E1B934BB200B3054C /* Images.xcassets */; };
 		58420E721B934BB200B3054C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58420E701B934BB200B3054C /* MainMenu.xib */; };
 		58420E7E1B934BB200B3054C /* Flickr_SlidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */; };
+		589069B61C5C38930065C57A /* slide_element_nonadvancing.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589069B51C5C38930065C57A /* slide_element_nonadvancing.slidetemplate */; };
 		589874FF1B97D2E3000DE867 /* cue_element.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */; };
 		589875011B97D459000DE867 /* slide_element.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589875001B97D459000DE867 /* slide_element.slidetemplate */; };
 		589875031B97DCCA000DE867 /* document.slidetemplate in Resources */ = {isa = PBXBuildFile; fileRef = 589875021B97DCCA000DE867 /* document.slidetemplate */; };
@@ -47,6 +48,7 @@
 		58420E771B934BB200B3054C /* Flickr SlidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr SlidesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58420E7C1B934BB200B3054C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58420E7D1B934BB200B3054C /* Flickr_SlidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flickr_SlidesTests.m; sourceTree = "<group>"; };
+		589069B51C5C38930065C57A /* slide_element_nonadvancing.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slide_element_nonadvancing.slidetemplate; sourceTree = "<group>"; };
 		589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cue_element.slidetemplate; sourceTree = "<group>"; };
 		589875001B97D459000DE867 /* slide_element.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slide_element.slidetemplate; sourceTree = "<group>"; };
 		589875021B97DCCA000DE867 /* document.slidetemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = document.slidetemplate; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				58CBC10E1B973BC300F54D1B /* flickr_keys.plist */,
 				589874FE1B97D2E3000DE867 /* cue_element.slidetemplate */,
 				589875001B97D459000DE867 /* slide_element.slidetemplate */,
+				589069B51C5C38930065C57A /* slide_element_nonadvancing.slidetemplate */,
 				589875021B97DCCA000DE867 /* document.slidetemplate */,
 			);
 			path = "Flickr Slides";
@@ -260,6 +263,7 @@
 				589874FF1B97D2E3000DE867 /* cue_element.slidetemplate in Resources */,
 				589875031B97DCCA000DE867 /* document.slidetemplate in Resources */,
 				58CBC10F1B973BC300F54D1B /* flickr_keys.plist in Resources */,
+				589069B61C5C38930065C57A /* slide_element_nonadvancing.slidetemplate in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
